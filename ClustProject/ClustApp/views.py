@@ -9,7 +9,7 @@ import random as r
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-from pycaret.classification import*
+from pycaret.clustering import*
 import pandas as pd
 from io import StringIO
 
@@ -110,14 +110,13 @@ def data_process(doc,email):
 def input_doc(request):
     if request.method == "POST":
         email = request.POST['email']
-        description = request.POST['description']
         doc = request.FILES['doc']# get the uploaded file
         if not doc.name.endswith('.csv'):
             messages.error(request,"Upload only csv file")
             print("Your file must be a CSV type")
             return redirect('input_doc')
         else :            
-            user = userData.objects.create(email=email,doc=doc,description=description)
+            user = userData.objects.create(email=email,doc=doc)
             user.save()
             data_process(doc,email)
             print("data processed")
