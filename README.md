@@ -5,5 +5,7 @@ This project uses PyCaret to calculate and provide various evaluation parameter 
 
 
 ## Delpoyment
+## **NOT WORKING**
+
 The project has been deployed as a webapp. This Django-Gunicorn-Nginx has been deployed using Microsoft Azure.
-Access it [here](http://cluster-calc.last-codebender.tech). <<NOT WORKING>>
+Access it [here](http://cluster-calc.last-codebender.tech). 
